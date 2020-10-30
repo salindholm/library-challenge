@@ -4,7 +4,7 @@ class Visitor
     attr_accessor :books
 
     def initialize
-        @books
+        @books = 7
     end
 
     

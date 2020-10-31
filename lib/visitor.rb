@@ -16,6 +16,11 @@ class Visitor
         raise 'Library is required'
     end
 
+    def list_of_books
+        true
+    end
+
+
 
   #  def missing_books
    #     raise 'List of books is required'

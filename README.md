@@ -2,7 +2,7 @@
 ```
 As a visitor
 In order to borrow a book
-I want to be able to have a list of  books with titles and authors
+I want to be able to have a list books with titles and authors
 ```
 ```
 As a visitor 

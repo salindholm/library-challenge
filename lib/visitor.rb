@@ -1,10 +1,10 @@
-require '.lib/data.yml'
+# require '.lib/data.yml'
 
 class Visitor
-    attr_accessor :books
+    attr_accessor :name
 
-    def initialize
-        @books = 7
+    def initialize (name)
+        @name = name
     end
 
     

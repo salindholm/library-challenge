@@ -2,13 +2,14 @@ require './lib/visitor.rb'
 require 'date'
 
 describe Visitor do
+    let(:name) {instance_double ('Sanne')}
+    subject {Visitor.new(name)}
 
-    let (:library) { instance_double('Library', availability: true, return_date: 21/11/20) }
+    it 'is expected to have a name on initialize' do
+        expect(subject.name). to eq name
     
-    
-
-    it 'to see the available books' do
-        expect(subject.books).to eq 8
     end
+
+
 
 end

@@ -8,5 +8,11 @@ class Visitor
         @books = []
     end
 
-    
+    def borrow arg
+        missing_library
+    end
+
+    def missing_library
+        raise 'Library is required'
+    end
 end

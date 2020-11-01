@@ -8,7 +8,6 @@ describe Visitor do
 
     before do 
         allow(library).to receive(:check_out)
-        # allow(library).to receive(:books).and_return([])
     end
 
     it 'is expected to have a name on initialize' do
@@ -20,54 +19,50 @@ describe Visitor do
     end
 
     it 'is expected to raise an error if there is no library' do
-        expect{ subject.check_out({}) }.to raise_error ('Library is required')
+        expect{ subject.borrow({}) }.to raise_error ('Library is required')
     end
 
     it 'is expected to raise an error if there is no list of books' do
-       expect{ subject.check_out({library: library}) }.to raise_error ('List of books is required')
+       expect{ subject.borrow({library: library}) }.to raise_error ('List of books is required')
     end
 
-    it 'is expected to have a list of books' do
-        expect(subject.list_of_books).to be_an(Array)
-    end
-
-    it 'is expected to update the books when checkout success' do
-        book_to_be_checkout = {
+    it 'is expected to update the books when borrow is success' do
+        book_to_be_borrowed = {
             title: "Apple",
             author: "A",
             return_date: Date.today.next_month(1)
         }
-        title_to_be_checkout = book_to_be_checkout[:title]
+        title_to_be_borrowed = book_to_be_borrowed[:title]
 
         subject.books = []
 
         allow(library).to receive(:check_out).and_return({
             status: true,
             message: "success",
-            books: [book_to_be_checkout]
+            book: book_to_be_borrowed
         })
 
-        expect(library).to receive(:check_out).with([title_to_be_checkout])
+        expect(library).to receive(:check_out).with(title_to_be_borrowed)
         
-        subject.check_out({
-            list: [title_to_be_checkout],
+        subject.borrow({
+            title: title_to_be_borrowed,
             library: library
         })
 
-        expect(subject.books).to eq [book_to_be_checkout]
+        expect(subject.books).to eq [book_to_be_borrowed]
     end
 
-    it 'is expected to updates the books when checkout not success' do
-        title_to_be_checkout = "Apple"
+    it 'is expected to updates the books when borrow is failure' do
+        title_to_be_borrowed = "Apple"
         subject.books = []
         allow(library).to receive(:check_out).and_return({
             status: false,
             message: "not available",
         })
 
-        expect(library).to receive(:check_out).with([title_to_be_checkout])
-        subject.check_out({
-            list: [title_to_be_checkout],
+        expect(library).to receive(:check_out).with(title_to_be_borrowed)
+        subject.borrow({
+            title: title_to_be_borrowed,
             library: library
         })
         expect(subject.books).to eq []

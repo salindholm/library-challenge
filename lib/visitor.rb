@@ -1,5 +1,3 @@
-# require '.lib/data.yml'
-
 class Visitor
     attr_accessor :name, :books
 
@@ -8,14 +6,12 @@ class Visitor
         @books = []
     end
 
-    def check_out arg # has to be {list: ..., library: ...}
-        missing_library arg[:library]
-        missing_books arg[:list]
-        library = arg[:library]
-        list = arg[:list]
-        result = library.check_out(list)
+    def borrow request
+        missing_library request[:library]
+        missing_books request[:title]
+        result = request[:library].check_out(request[:title])
         if result[:status] == true then
-            @books += result[:books]
+            @books << result[:book]
         end
         result[:message]
     end
@@ -24,11 +20,7 @@ class Visitor
         raise 'Library is required' if library == nil
     end
 
-    def list_of_books
-        books
-    end
-
-   def missing_books list
+    def missing_books list
        raise 'List of books is required' if list == nil
-   end
+    end
 end

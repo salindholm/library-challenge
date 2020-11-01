@@ -8,12 +8,12 @@ class Visitor
         @books = []
     end
 
-    def borrow arg # has to be {list: ..., library: ...}
+    def check_out arg # has to be {list: ..., library: ...}
         missing_library arg[:library]
         missing_books arg[:list]
         library = arg[:library]
         list = arg[:list]
-        result = library.borrow(list)
+        result = library.check_out(list)
         if result[:status] == true then
             @books += result[:books]
         end

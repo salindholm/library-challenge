@@ -73,6 +73,8 @@ visitor
 - [Convert Array or Hash object to YAML format](https://stackoverflow.com/a/17576810)
 - [Oneline `if` statement in Ruby](https://stackoverflow.com/a/42308805)
 - [Use a double for an instance variable of an object in Rspec](https://stackoverflow.com/questions/39815538/use-a-double-for-an-instance-variable-of-an-object-in-rspec)
+- Our teammates
+- Mr.Puthnith Var
 
 ## Improvement plans
 

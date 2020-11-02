@@ -56,8 +56,7 @@ library.library.search(title: 'Stone', author: 'Rowling')
 
 => [{:item=>{:title=>"Harry Potter and the Philosopher's Stone", :author=>"J.K. Rowling"}, :available=>true, :return_date=>nil}] 
 
-visitor.borrow(title: 'Harry Potter and the Philosopher\'s Stone', l
-brary: library)
+visitor.borrow(title: 'Harry Potter and the Philosopher\'s Stone', library: library)
 
 => "success"
 

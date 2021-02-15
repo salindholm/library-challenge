@@ -28,6 +28,10 @@ In order to keep track of books,
 I would like to be able to search a book by title, author and by both.
 ```
 
+## Dependencies
+- Ruby
+- RSpec
+
 ## Setup
 
 You need to have Ruby on your machine and clone this repo.
